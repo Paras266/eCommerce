@@ -7,7 +7,7 @@ import {
   incrementAsync,
   selectCount,
   selectProduct,
-} from './productSlice';
+} from '../productSlice';
 import {
   Dialog,
   DialogBackdrop,
@@ -23,6 +23,7 @@ import {
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { Link } from 'react-router-dom';
 
 const items = [
   { id: 1, title: 'Back End Developer', department: 'Engineering', type: 'Full-time', location: 'Remote' },
@@ -340,6 +341,7 @@ export const ProductList = ()=> {
 
                         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-1 lg:grid-cols-3 xl:gap-x-8">
                           {products.map((product) => (
+                            <Link to="/productdetail">
                             <div key={product.id} className="group relative">
                               <img
                                 alt={product.imageAlt}
@@ -359,6 +361,7 @@ export const ProductList = ()=> {
                                 <p className="text-sm font-medium text-gray-900">{product.price}</p>
                               </div>
                             </div>
+                            </Link>
                           ))}
                         </div>
                       </div>
